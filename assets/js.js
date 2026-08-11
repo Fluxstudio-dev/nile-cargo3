@@ -166,7 +166,7 @@
     const nextBtn = document.querySelector('.next-arrow');
     if (slides.length && heroTitle && prevBtn && nextBtn) {
       let currentSlide = 0;
-      const heroDeco = document.querySelector('.hero-deco-shape');
+      const heroDeco = document.querySelector('.hero-deco-wrap');
       function animateHeroDeco() {
         if (!heroDeco) return;
         heroDeco.classList.remove('is-switching');
