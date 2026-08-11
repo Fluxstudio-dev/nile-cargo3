@@ -251,53 +251,42 @@ body {
   z-index: 2;
   pointer-events: none;
 }
-.animated-banner-shapes {
+.hero-deco-shape {
   position: absolute;
-  top: -80px;
-  right: -50px;
-  width: 500px;
-  height: 120%;
-  z-index: 3;
-  pointer-events: none;
-}
-.shape {
-  position: absolute;
-  transform: rotate(-35deg);
-  transform-origin: top right;
-  border-radius: 50px;
-}
-.yellow-bar {
-  width: 170px;
-  height: 100%;
-  background: linear-gradient(180deg, #ffd84d 0%, #f5a700 100%);
   top: 0;
   right: 0;
-  animation: pulseBarYellow 3s ease-in-out infinite alternate;
+  width: min(320px, 36vw);
+  height: auto;
+  max-height: 92%;
+  object-fit: contain;
+  object-position: top right;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.28));
+  transform-origin: top right;
+  animation: heroDecoFloat 5s ease-in-out infinite;
 }
-.red-bar {
-  width: 90px;
-  height: 75%;
-  background-color: #21647d;
-  top: 100px;
-  right: 140px;
-  animation: pulseBarRed 4s ease-in-out infinite alternate;
+@keyframes heroDecoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
 }
-@keyframes pulseBarYellow {
+.hero-deco-shape.is-switching {
+  animation: heroDecoReveal 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes heroDecoReveal {
   0% {
-    transform: rotate(-35deg) translateY(0px) scale(1);
-    filter: drop-shadow(0 0 10px rgba(29, 78, 216, 0.4));
+    opacity: 0.35;
+    transform: translateY(-28px) scale(0.92);
+    filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.28)) brightness(1.15);
   }
   100% {
-    transform: rotate(-35deg) translateY(-25px) scale(1.03);
-    filter: drop-shadow(0 0 30px rgba(29, 78, 216, 0.7));
-  }
-}
-@keyframes pulseBarRed {
-  0% {
-    transform: rotate(-35deg) translateY(0px) scale(1);
-  }
-  100% {
-    transform: rotate(-35deg) translateY(30px) scale(1.05);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.28)) brightness(1);
   }
 }
 .hero-content {
@@ -1163,8 +1152,10 @@ body {
   .hero-title {
     font-size: 38px;
   }
-  .animated-banner-shapes {
-    display: none;
+  .hero-deco-shape {
+    width: min(240px, 42vw);
+    max-height: 70%;
+    opacity: 0.85;
   }
   .af-grid {
     grid-template-columns: 1fr;

@@ -166,6 +166,16 @@
     const nextBtn = document.querySelector('.next-arrow');
     if (slides.length && heroTitle && prevBtn && nextBtn) {
       let currentSlide = 0;
+      const heroDeco = document.querySelector('.hero-deco-shape');
+      function animateHeroDeco() {
+        if (!heroDeco) return;
+        heroDeco.classList.remove('is-switching');
+        void heroDeco.offsetWidth;
+        heroDeco.classList.add('is-switching');
+        heroDeco.addEventListener('animationend', () => {
+          heroDeco.classList.remove('is-switching');
+        }, { once: true });
+      }
       function changeSlide(index) {
         slides.forEach((slide, i) => {
           slide.classList.remove('active');
@@ -174,6 +184,7 @@
         heroTitle.style.animation = 'none';
         heroTitle.offsetHeight;
         heroTitle.style.animation = 'fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards';
+        animateHeroDeco();
       }
       nextBtn.addEventListener('click', () => { currentSlide = (currentSlide + 1) % slides.length; changeSlide(currentSlide); });
       prevBtn.addEventListener('click', () => { currentSlide = (currentSlide - 1 + slides.length) % slides.length; changeSlide(currentSlide); });
