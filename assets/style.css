@@ -214,6 +214,13 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
+  isolation: isolate;
+}
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
 }
 .slides-container {
   position: absolute;
@@ -221,7 +228,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 .slide {
   position: absolute;
@@ -248,22 +254,31 @@ body {
   background-repeat: repeat-y;
   background-size: 330px 380px;
   background-position: -55px -35px;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
 }
-.hero-deco-shape {
+.hero-deco-wrap {
   position: absolute;
+  top: 0;
   right: 0;
-  bottom: 0;
-  width: min(320px, 34vw);
-  height: auto;
-  max-height: 88%;
-  object-fit: contain;
-  object-position: bottom right;
-  z-index: 5;
+  width: min(340px, 36vw);
+  height: 100%;
+  z-index: 3;
   pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  direction: ltr;
+}
+.hero-deco-shape {
+  width: 100%;
+  height: auto;
+  max-height: 78%;
+  object-fit: contain;
+  object-position: top right;
+  display: block;
   filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.35));
-  transform-origin: bottom right;
+  transform-origin: top right;
   animation: heroDecoFloat 5s ease-in-out infinite;
 }
 @keyframes heroDecoFloat {
@@ -420,7 +435,7 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 5;
+  z-index: 6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1152,10 +1167,11 @@ body {
   .hero-title {
     font-size: 38px;
   }
+  .hero-deco-wrap {
+    width: min(280px, 52vw);
+  }
   .hero-deco-shape {
-    width: min(260px, 48vw);
-    max-height: 65%;
-    opacity: 1;
+    max-height: 62%;
   }
   .af-grid {
     grid-template-columns: 1fr;
