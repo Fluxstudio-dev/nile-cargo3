@@ -259,26 +259,22 @@ body {
 }
 .hero-deco-wrap {
   position: absolute;
-  top: -70px;
-  right: -25px;
-  width: min(360px, 34vw);
-  height: calc(100% + 70px);
+  top: -55px;
+  right: 0;
+  width: 230px;
+  max-width: 24vw;
   z-index: 3;
   pointer-events: none;
-  overflow: hidden;
   direction: ltr;
   animation: heroDecoFloat 5s ease-in-out infinite;
 }
 .hero-deco-shape {
-  position: absolute;
-  top: 0;
-  right: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top right;
+  height: auto;
   display: block;
-  filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.35));
+  object-fit: contain;
+  object-position: top right;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
 }
 .hero-deco-wrap.is-switching {
   animation: heroDecoReveal 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -1165,10 +1161,10 @@ body {
     font-size: 38px;
   }
   .hero-deco-wrap {
-    top: -35px;
-    right: -10px;
-    width: min(260px, 44vw);
-    height: calc(100% + 35px);
+    top: -25px;
+    right: 0;
+    width: 170px;
+    max-width: 34vw;
   }
   .af-grid {
     grid-template-columns: 1fr;
