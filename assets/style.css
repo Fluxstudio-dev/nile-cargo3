@@ -253,17 +253,17 @@ body {
 }
 .hero-deco-shape {
   position: absolute;
-  top: 0;
   right: 0;
-  width: min(320px, 36vw);
+  bottom: 0;
+  width: min(320px, 34vw);
   height: auto;
-  max-height: 92%;
+  max-height: 88%;
   object-fit: contain;
-  object-position: top right;
-  z-index: 3;
+  object-position: bottom right;
+  z-index: 5;
   pointer-events: none;
-  filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.28));
-  transform-origin: top right;
+  filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.35));
+  transform-origin: bottom right;
   animation: heroDecoFloat 5s ease-in-out infinite;
 }
 @keyframes heroDecoFloat {
@@ -1153,9 +1153,9 @@ body {
     font-size: 38px;
   }
   .hero-deco-shape {
-    width: min(240px, 42vw);
-    max-height: 70%;
-    opacity: 0.85;
+    width: min(260px, 48vw);
+    max-height: 65%;
+    opacity: 1;
   }
   .af-grid {
     grid-template-columns: 1fr;
