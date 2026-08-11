@@ -259,10 +259,9 @@ body {
 }
 .hero-deco-wrap {
   position: absolute;
-  top: -55px;
-  right: 0;
-  width: 230px;
-  max-width: 24vw;
+  top: -85px;
+  right: -45px;
+  width: 380px;
   z-index: 3;
   pointer-events: none;
   direction: ltr;
@@ -274,7 +273,7 @@ body {
   display: block;
   object-fit: contain;
   object-position: top right;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.3));
 }
 .hero-deco-wrap.is-switching {
   animation: heroDecoReveal 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -1161,10 +1160,9 @@ body {
     font-size: 38px;
   }
   .hero-deco-wrap {
-    top: -25px;
-    right: 0;
-    width: 170px;
-    max-width: 34vw;
+    top: -40px;
+    right: -20px;
+    width: 270px;
   }
   .af-grid {
     grid-template-columns: 1fr;
