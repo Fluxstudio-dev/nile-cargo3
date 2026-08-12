@@ -259,9 +259,9 @@ body {
 }
 .hero-deco-wrap {
   position: absolute;
-  top: -85px;
-  right: -45px;
-  width: 380px;
+  top: 0px;
+  right: 0px;
+  width: 480px;
   z-index: 3;
   pointer-events: none;
   direction: ltr;
