@@ -58,7 +58,7 @@
 /* ========================================= */
 
 .counter-section {
-  padding: 100px 0;
+  padding: 90px 0;
   background: linear-gradient(rgba(29, 78, 216, 0.88), rgba(30, 58, 138, 0.92)), url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
@@ -66,25 +66,31 @@
   position: relative;
 }
 .counter-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 .counter-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
 }
 .counter-card {
   position: relative;
   background-color: rgba(255,255,255,0.95);
-  padding: 45px 20px;
+  padding: 42px 28px;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   cursor: pointer;
   overflow: hidden;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 170px;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, color 0.4s ease;
 }
 .counter-card::before {
@@ -170,17 +176,32 @@
   transition-delay: 0.4s;
 }
 .counter-number {
-  font-size: 44px;
+  font-size: 46px;
   font-weight: 800;
   color: #1d4ed8;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1;
   transition: color 0.4s ease;
   font-variant-numeric: tabular-nums;
+}
+.counter-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 195, 0, 0.15);
+  color: #d59a00;
+  font-size: 22px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 .counter-title {
   font-size: 15px;
   font-weight: 600;
   color: #333;
+  line-height: 1.4;
   transition: color 0.4s ease;
 }
 .counter-card:hover, .counter-card.active-default {
@@ -194,6 +215,10 @@
   transform: scale(1);
 }
 .counter-card:hover .counter-number, .counter-card:hover .counter-title, .counter-card.active-default .counter-number, .counter-card.active-default .counter-title {
+  color: #ffffff;
+}
+.counter-card:hover .counter-icon, .counter-card.active-default .counter-icon {
+  background: rgba(255,255,255,0.2);
   color: #ffffff;
 }
 .projects-section-full {
@@ -418,12 +443,12 @@
   padding: 90px 0;
 }
 .clients .container {
-  max-width: 1200px;
+  max-width: 900px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 100px;
   flex-wrap: wrap;
 }
 .client {
@@ -433,16 +458,17 @@
   transition: 0.45s ease;
 }
 .client-logo {
-  width: 150px;
+  width: 220px;
   max-width: 100%;
-  filter: grayscale(100%) brightness(1.5);
-  opacity: 0.65;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
   transition: filter 0.45s ease, opacity 0.45s ease, transform 0.45s ease;
 }
 .client:hover .client-logo {
-  filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 12px rgba(255,255,255,0.18));
+  filter: none;
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
  .shipping-support {
@@ -557,6 +583,51 @@
   line-height: 1.8;
   margin-bottom: 28px;
 }
+.shipping-process-kicker {
+  color: #d59a00;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.shipping-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 6px;
+}
+.shipping-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.shipping-step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffd84d, #ffc300);
+  color: #172033;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 50%;
+}
+.shipping-step-body h4 {
+  color: #172033;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+.shipping-step-body p {
+  color: #687385;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+}
 .shipping-metric {
   margin-top: 22px;
 }
@@ -581,25 +652,6 @@
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #d59a00, #ffc300);
-}
-.shipping-support-mark {
-  position: absolute;
-  left: -55px;
-  top: 58%;
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(213, 154, 0, 0.42);
-  border-radius: 50%;
-}
-.shipping-support-mark::after {
-  content: '';
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  inset: 0;
-  margin: auto;
-  background: #d9232d;
-  border-radius: 50%;
 }
 
  .cta-hero {
@@ -1077,28 +1129,26 @@
           </div>
         </div>
         <div class="af-content-wrapper reveal-right">
-          <h2 class="af-heading">Explore Worlds Leading<br>Local And Gloabl Agencies</h2>
-          <p class="af-description">Nullam eu nibh vitae est tempor molestie id sed ex. Quisque dignissim maximus ipsum, sed rutrum metus tincidunt et. Sed eget tincidunt ipsum. Eget tincidunt</p>
+          <h2 class="af-heading">Moving Cargo.<br>Connecting Markets.</h2>
+          <p class="af-description">Established in 1995, Nile Cargo is an Egyptian freight forwarding and logistics company providing integrated solutions for international trade. </p>
           <div class="af-cards-container">
             <div class="af-card">
               <div class="af-card-icon"><i class="fa-solid fa-boxes-packing"></i></div>
               <div class="af-card-content">
-                <h3>Cloud Based</h3>
-                <p>Nullam eu nibh vitae est tempor molestie</p>
-                <p>Quisque dignissim maximus ipsum</p>
+                <h3>Industry Knowledge</h3>
+                <p>A strong understanding of freight forwarding and international shipping procedures.</p>
               </div>
             </div>
             <div class="af-card af-no-border">
               <div class="af-card-icon"><i class="fa-solid fa-route"></i></div>
               <div class="af-card-content">
-                <h3>Technical Support</h3>
-                <p>Nullam eu nibh vitae est tempor molestie</p>
-                <p>Quisque dignissim maximus ipsum</p>
+                <h3>Complete Coordination</h3>
+                <p>Multiple logistics services managed through one point of contact. </p>
               </div>
             </div>
           </div>
           <div class="af-footer">
-            <a href="#" class="af-btn-discover">DISCOVER MORE</a>
+            <a href="about.html" class="af-btn-discover">DISCOVER MORE</a>
           </div>
         </div>
       </div>
@@ -1110,20 +1160,19 @@
     <div class="counter-container">
       <div class="counter-grid">
         <div class="counter-card reveal-scale reveal-delay-1">
-          <div class="counter-number">250+</div>
-          <div class="counter-title">Active Team Members</div>
+          <div class="counter-icon"><i class="fa-solid fa-gears"></i></div>
+          <div class="counter-number">4+</div>
+          <div class="counter-title">Operations</div>
         </div>
-        <div class="counter-card active-default reveal-scale reveal-delay-2">
-          <div class="counter-number">45k+</div>
-          <div class="counter-title">Happy Customers</div>
+        <div class="counter-card reveal-scale reveal-delay-2">
+          <div class="counter-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="counter-number">5+</div>
+          <div class="counter-title">Accounts</div>
         </div>
         <div class="counter-card reveal-scale reveal-delay-3">
-          <div class="counter-number">80%</div>
-          <div class="counter-title">Increase Traffics</div>
-        </div>
-        <div class="counter-card reveal-scale reveal-delay-4">
-          <div class="counter-number">80%</div>
-          <div class="counter-title">Increase TrafficsMembers</div>
+          <div class="counter-icon"><i class="fa-solid fa-file-shield"></i></div>
+          <div class="counter-number">4+</div>
+          <div class="counter-title">Customs Clearance</div>
         </div>
       </div>
     </div>
@@ -1132,29 +1181,28 @@
   <!-- Projects Section -->
   <section class="projects-section-full">
     <div class="projects-header reveal">
-      <span class="projects-subtitle">Our Projects</span>
-      <h2 class="projects-title">Check Our Latest Projects</h2>
+        <span class="projects-subtitle">Our Services</span>
     </div>
     <div class="slider-container" id="sliderContainer">
       <div class="projects-track" id="projectsTrack">
         <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" alt="Port">
+          <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=800&q=80" alt="Plane">
           <div class="project-overlay-dark"></div>
           <div class="project-overlay"></div>
           <div class="project-details">
             <div class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
-            <span class="project-category">Logistics</span>
-            <h3 class="project-name">Port Crane Operations</h3>
+            <span class="project-category">Air Freight</span>
+            <h3 class="project-name">Air cargo solutions for shipments requiring speed, flexibility and efficient handling.</h3>
           </div>
         </div>
         <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=800&q=80" alt="Ship">
+          <img src="assets/img/sea freight.jpg" alt="Sea Freight">
           <div class="project-overlay-dark"></div>
           <div class="project-overlay"></div>
           <div class="project-details">
             <div class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
-            <span class="project-category">Transport</span>
-            <h3 class="project-name">Ocean Freight Delivery</h3>
+            <span class="project-category">Sea Freight</span>
+            <h3 class="project-name">Ocean transportation solutions for international cargo, including both FCL and LCL shipments.</h3>
           </div>
         </div>
         <div class="project-card">
@@ -1163,28 +1211,29 @@
           <div class="project-overlay"></div>
           <div class="project-details">
             <div class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
-            <span class="project-category">Logistics</span>
-            <h3 class="project-name">Product Distribution</h3>
+            <span class="project-category">Land Freight</span>
+            <h3 class="project-name">Inland transportation services supporting the movement of cargo to and from key locations.</h3>
           </div>
         </div>
         <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Container">
+          
+<img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3" alt="Import & Export">
           <div class="project-overlay-dark"></div>
           <div class="project-overlay"></div>
           <div class="project-details">
             <div class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
-            <span class="project-category">Warehouse</span>
-            <h3 class="project-name">Global Cargo Terminal</h3>
+            <span class="project-category">Import & Export</span>
+            <h3 class="project-name">Coordinated logistics support for international trade and cross-border shipments.</h3>
           </div>
         </div>
         <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=800&q=80" alt="Plane">
+          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Customs Clearance">
           <div class="project-overlay-dark"></div>
           <div class="project-overlay"></div>
           <div class="project-details">
             <div class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
-            <span class="project-category">Air Freight</span>
-            <h3 class="project-name">International Shipping</h3>
+            <span class="project-category">Customs Clearance</span>
+            <h3 class="project-name">Handling customs procedures and documentation to facilitate cargo clearance.</h3>
           </div>
         </div>
       </div>
@@ -1195,10 +1244,10 @@
   <section class="opportunity-section">
     <div class="opportunity-container">
       <div class="opportunity-content reveal-left">
-        <span class="opportunity-subtitle">We are logimax Service</span>
-        <h2 class="opportunity-title">We Create Opportunity To Reach Potential.</h2>
-        <p class="opportunity-description">The main elements of a marketing strategy are your target goals and objectives and the tax you will employ to markter to your achive the goals you</p>
-        <a href="#" class="btn-discover">DISCOVER MORE</a>
+        <span class="opportunity-subtitle">NILE CARGO INTERNATIONAL</span>
+        <h2 class="opportunity-title">Connecting Businesses Through Logistics</h2>
+        <p class="opportunity-description">From air and sea freight to land transportation and customs clearance, we provide integrated logistics solutions designed to keep international trade moving.</p>
+        <a href="about.html" class="btn-discover">DISCOVER MORE</a>
       </div>
       <div class="opportunity-image-wrapper reveal-right">
         <img src="assets/img/05.jpg" alt="Logistics and Transport" class="opportunity-img">
@@ -1206,47 +1255,14 @@
     </div>
   </section>
 
-  <!-- Clients Section - UPDATED WITH SVG LOGOS -->
+  <!-- Banking Partners Section -->
   <section class="clients">
     <div class="container">
-      <a href="#" class="client">
-        <svg class="client-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="10" width="40" height="40" rx="8" fill="#73aabd"/>
-          <text x="55" y="38" font-family="Poppins, sans-serif" font-size="22" font-weight="800" fill="#ffffff">NEXUS</text>
-          <text x="55" y="52" font-family="Poppins, sans-serif" font-size="10" font-weight="500" fill="#888" letter-spacing="3">LOGISTICS</text>
-        </svg>
+      <a href="https://www.qnbalahli.com/" class="client" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/qnb-logo.svg" alt="QNB Al Ahli Bank" class="client-logo">
       </a>
-      <a href="#" class="client">
-        <svg class="client-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="30,5 55,50 5,50" fill="#21647d"/>
-          <text x="65" y="38" font-family="Poppins, sans-serif" font-size="20" font-weight="800" fill="#ffffff">APEX</text>
-          <text x="65" y="52" font-family="Poppins, sans-serif" font-size="10" font-weight="500" fill="#888" letter-spacing="2">CARGO</text>
-        </svg>
-      </a>
-      <a href="#" class="client">
-        <svg class="client-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="30" cy="30" r="22" fill="none" stroke="#73aabd" stroke-width="4"/>
-          <circle cx="30" cy="30" r="8" fill="#21647d"/>
-          <text x="60" y="38" font-family="Poppins, sans-serif" font-size="20" font-weight="800" fill="#ffffff">ORBIT</text>
-          <text x="60" y="52" font-family="Poppins, sans-serif" font-size="10" font-weight="500" fill="#888" letter-spacing="2">TRANSPORT</text>
-        </svg>
-      </a>
-      <a href="#" class="client">
-        <svg class="client-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="15" width="45" height="30" rx="4" fill="none" stroke="#21647d" stroke-width="3"/>
-          <line x1="15" y1="25" x2="40" y2="25" stroke="#73aabd" stroke-width="2"/>
-          <line x1="15" y1="35" x2="35" y2="35" stroke="#73aabd" stroke-width="2"/>
-          <text x="58" y="38" font-family="Poppins, sans-serif" font-size="20" font-weight="800" fill="#ffffff">PRIME</text>
-          <text x="58" y="52" font-family="Poppins, sans-serif" font-size="10" font-weight="500" fill="#888" letter-spacing="2">FREIGHT</text>
-        </svg>
-      </a>
-      <a href="#" class="client">
-        <svg class="client-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 45 L30 15 L50 45 Z" fill="#21647d"/>
-          <path d="M25 45 L40 25 L55 45 Z" fill="#73aabd" opacity="0.7"/>
-          <text x="65" y="38" font-family="Poppins, sans-serif" font-size="18" font-weight="800" fill="#ffffff">VERTEX</text>
-          <text x="65" y="52" font-family="Poppins, sans-serif" font-size="10" font-weight="500" fill="#888" letter-spacing="2">SHIPPING</text>
-        </svg>
+      <a href="https://www.cibeg.com/" class="client" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/cib-logo.svg" alt="Commercial International Bank (CIB)" class="client-logo">
       </a>
     </div>
   </section>
@@ -1254,31 +1270,43 @@
   <!-- Shipping Support Section -->
   <section class="shipping-support">
     <div class="shipping-support-grid">
-      <span class="shipping-support-mark" aria-hidden="true"></span>
       <div class="shipping-support-intro reveal-left">
-        <p class="shipping-support-kicker">Nile Cargo Advantage</p>
-        <h2>Every Shipment Deserves a Clear Route</h2>
-        <p>From collection to final delivery, our team coordinates air, sea, and land freight with clear updates at every stage of the journey.</p>
-        <a href="#" class="shipping-support-btn">GET A SHIPPING QUOTE</a>
+        <p class="shipping-support-kicker">GLOBAL NETWORK</p>
+        <h2>Connected Through International Partnerships</h2>
+        <p>Nile Cargo is a member of FORCE International Network and is affiliated with EIFFA and FIATA, strengthening our access to international freight forwarding partners and industry networks.</p>
+        <a href="#" class="shipping-support-btn">DISCOVER MORE</a>
       </div>
       <div class="shipping-support-photo reveal-scale">
         <img src="assets/img/05.jpg" alt="Nile Cargo air, sea, rail, and road freight services">
       </div>
       <div class="shipping-support-info reveal-right">
-        <h2>Shipping Support You Can Rely On</h2>
-        <p>Our freight specialists keep your cargo moving with dependable schedules, responsive communication, and solutions tailored to your supply chain.</p>
-        <div class="shipping-metric">
-          <div class="shipping-metric-label"><span>On-time delivery performance</span><span>98%</span></div>
-          <div class="shipping-metric-bar"><span style="width: 98%"></span></div>
+        <p class="shipping-process-kicker">Shipment Process</p>
+        <h2>How We Handle Your Shipment</h2>
+        <div class="shipping-steps">
+          <div class="shipping-step">
+            <span class="shipping-step-num">01</span>
+            <div class="shipping-step-body">
+              <h4>Shipment Request</h4>
+              <p>The client shares the shipment details and required documents with our team.</p>
+            </div>
+          </div>
+          <div class="shipping-step">
+            <span class="shipping-step-num">02</span>
+            <div class="shipping-step-body">
+              <h4>Overseas Coordination</h4>
+              <p>Our team coordinates with our overseas agent to arrange the shipment from origin.</p>
+            </div>
+          </div>
+          <div class="shipping-step">
+            <span class="shipping-step-num">03</span>
+            <div class="shipping-step-body">
+              <h4>Booking &amp; Documentation</h4>
+              <p>The shipment is booked and the required documentation is arranged and verified.</p>
+            </div>
+          </div>
         </div>
-        <div class="shipping-metric">
-          <div class="shipping-metric-label"><span>Live shipment visibility</span><span>94%</span></div>
-          <div class="shipping-metric-bar"><span style="width: 94%"></span></div>
-        </div>
-        <div class="shipping-metric">
-          <div class="shipping-metric-label"><span>Customs clearance readiness</span><span>91%</span></div>
-          <div class="shipping-metric-bar"><span style="width: 91%"></span></div>
-        </div>
+        <br>
+        <a href="about.html" class="shipping-support-btn">VIEW FULL PROCESS</a>
       </div>
     </div>
   </section>
@@ -1290,8 +1318,9 @@
   <section class="cta-hero">
     <div class="container">
       <div class="cta-hero-content reveal">
-        <h1>Best Logistics & Transportation service at you fingertrips</h1>
-        <a href="#" class="cta-hero-btn">REQUEST A QUOTE</a>
+        <h1>Nile Cargo International
+          Connecting Businesses Through Logistics</h1>
+        <a href="#" class="cta-hero-btn">DISCOVER MORE</a>
       </div>
       <div class="cta-hero-card reveal-scale reveal-delay-2">
         <img src="assets/img/05.jpg" alt="">
